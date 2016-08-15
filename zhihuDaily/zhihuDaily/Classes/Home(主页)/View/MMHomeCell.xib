@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="93" id="KGk-i7-Jjw" customClass="MMHomeCell">
+            <rect key="frame" x="0.0" y="0.0" width="388" height="93"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="388" height="92"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XVx-4M-IjG">
+                        <rect key="frame" x="318" y="10" width="60" height="72"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="KvE-ND-2Xd"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_Morepic" translatesAutoresizingMaskIntoConstraints="NO" id="TQg-Pe-cbx">
+                        <rect key="frame" x="346" y="68" width="32" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="Abl-oL-vyE"/>
+                            <constraint firstAttribute="height" constant="14" id="tVj-Sf-eiy"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyY-kK-ZKE">
+                        <rect key="frame" x="10" y="39" width="298" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="XVx-4M-IjG" firstAttribute="bottom" secondItem="TQg-Pe-cbx" secondAttribute="bottom" id="1nh-m6-SfZ"/>
+                    <constraint firstItem="uyY-kK-ZKE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="AtI-tK-fLU"/>
+                    <constraint firstItem="XVx-4M-IjG" firstAttribute="leading" secondItem="uyY-kK-ZKE" secondAttribute="trailing" constant="10" id="HD5-tY-dSa"/>
+                    <constraint firstAttribute="bottom" secondItem="XVx-4M-IjG" secondAttribute="bottom" constant="10" id="LJH-E1-i02"/>
+                    <constraint firstItem="uyY-kK-ZKE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bRy-kH-Fy3"/>
+                    <constraint firstAttribute="trailing" secondItem="XVx-4M-IjG" secondAttribute="trailing" constant="10" id="lDr-wa-hJB"/>
+                    <constraint firstItem="XVx-4M-IjG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="m7U-ya-dc6"/>
+                    <constraint firstItem="TQg-Pe-cbx" firstAttribute="trailing" secondItem="XVx-4M-IjG" secondAttribute="trailing" id="ucp-Jx-Zw8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="multipicImageView" destination="TQg-Pe-cbx" id="Mr4-6c-9Cd"/>
+                <outlet property="storyImageView" destination="XVx-4M-IjG" id="dDu-c2-jsh"/>
+                <outlet property="title" destination="uyY-kK-ZKE" id="3JD-9V-mzn"/>
+            </connections>
+            <point key="canvasLocation" x="392" y="245.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Home_Morepic" width="32" height="14"/>
+    </resources>
+</document>

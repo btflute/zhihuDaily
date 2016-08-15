@@ -1,0 +1,64 @@
+//
+//  zhihuDaily.pch
+//  zhihuDaily
+//
+//  Created by  陈聪 on 16/6/11.
+//  Copyright © 2016年 cc. All rights reserved.
+//
+
+#ifndef zhihuDaily_pch
+#define zhihuDaily_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+/** 分类 */
+#import "UIBarButtonItem+Extend.h"
+#import "UIView+LBExtension.h"
+#import "UIImage+MMExtension.h"
+#import "UIImageView+MMExtension.h"
+#import "UIBarButtonItem+Extend.h"
+#import "NSObject+Date.h"
+/** 夜间模式框架*/
+#import <DKNightVersion/DKNightVersion.h>
+/** 日志输出 */
+#ifdef DEBUG
+#define MMLog(...) NSLog(__VA_ARGS__)
+#else
+#define MMLog(...)
+#endif
+
+/** 方法输出 */
+#define MMLogFunc MMLog(@"%s", __func__)
+
+/** 颜色 */
+#define MMARGBColor(a,r,g,b)  [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+#define MMColor(r,g,b) MMARGBColor(255, (r), (g), (b))
+#define MMGrayColor(v) MMColor((v),(v),(v))
+#define MMCommonBgColor MMGrayColor(215);
+#define MMRefreshHeight (-60.0)
+/** 随机颜色 */
+#define MMRandomColor MMColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+
+
+
+/** 快速创建弱指针 */
+#define __weakSelf __weak typeof(self) weakSelf = self;
+
+/** 屏幕的宽和高 */
+#define MMScreenW [UIScreen mainScreen].bounds.size.width
+#define MMScreenH [UIScreen mainScreen].bounds.size.height
+#define MMNaviBarH 64
+//主窗口
+#define KeyWindow [UIApplication sharedApplication].keyWindow
+
+//工具栏高度
+#define MMStatusBarHeight 20
+
+//导航栏高度
+#define MMNAVHeight 64
+
+#define kNotificationCenter [NSNotificationCenter defaultCenter]
+#define OpenDrawer @"leftdrawer_open"
+#define CloseDrawer @"leftdrawer_close"
+#define ToggleDrawer @"leftdrawer_toggle"
+#endif /* zhihuDaily_pch */

@@ -1,0 +1,9 @@
+NORMAL   NIGHT    RED
+#ffffff  #343434  #fafafa BG
+#aaaaaa  #313131  #aaaaaa SEP
+#0000ff  #ffffff  #fa0000 TINT
+#000000  #ffffff  #000000 TEXT
+#ffffff  #444444  #ffffff BAR
+#307fff  #444444  #fafafa NAV
+#f0f0f0  #313131  #000000 TEST
+#ffffff  #444444  #000000 LALA
