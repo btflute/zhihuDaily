@@ -27,6 +27,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.contentView.dk_backgroundColorPicker = DKColorPickerWithKey(BG);
+    self.conTentLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
+    self.nameLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
+    self.timeLabel.dk_backgroundColorPicker = DKColorPickerWithKey(BG);
+    self.timeLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
 }
 - (IBAction)didCleckedExpandBtn:(UIButton *)sender {
     sender.selected = !sender.selected;
@@ -54,10 +59,16 @@
             self.expandBtn.hidden = YES;
         }else{
             self.retweetLabel.backgroundColor = [UIColor clearColor];
-            NSDictionary *nameAttr = @{NSFontAttributeName : [UIFont systemFontOfSize:16],NSForegroundColorAttributeName :[UIColor blackColor]};
+            NSDictionary *nameAttr = nil;
+            if ([self.dk_manager.themeVersion isEqualToString:DKThemeVersionNight]) {
+                nameAttr = @{NSFontAttributeName : [UIFont systemFontOfSize:16],NSForegroundColorAttributeName :[UIColor whiteColor]};
+            }else{
+                nameAttr = @{NSFontAttributeName : [UIFont systemFontOfSize:16],NSForegroundColorAttributeName :[UIColor blackColor]};
+            }
+            
             NSString *name = [[@"//" stringByAppendingString:comment.reply_to.author] stringByAppendingString:@":"];
             NSMutableAttributedString *author = [[NSMutableAttributedString  alloc]initWithString:name attributes:nameAttr];
-            NSDictionary *contentAttr = @{NSFontAttributeName : [UIFont systemFontOfSize:16],NSForegroundColorAttributeName :[UIColor darkGrayColor]};
+            NSDictionary *contentAttr = @{NSFontAttributeName : [UIFont systemFontOfSize:16],NSForegroundColorAttributeName :[UIColor grayColor]};
             NSMutableAttributedString *content = [[NSMutableAttributedString  alloc]initWithString:comment.reply_to.content attributes:contentAttr];
             [author appendAttributedString:content];
             self.retweetLabel.attributedText = author;
@@ -123,6 +134,11 @@
         self.likeImageView.image = [UIImage imageNamed:@"Comment_Vote"];
         self.likeCountLabel.textColor = MMColor(128, 128, 128);
     }
+}
+
+- (void)setFrame:(CGRect)frame{
+    frame.size.height -= 1;
+    [super setFrame:frame];
 }
 
 - (void)prepareForReuse{

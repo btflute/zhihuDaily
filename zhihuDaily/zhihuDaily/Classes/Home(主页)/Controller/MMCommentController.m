@@ -28,7 +28,8 @@ static NSString *ID = @"CommentCell";
         _tableView = tableView;
         tableView.frame = CGRectMake(0, MMNAVHeight, MMScreenW, MMScreenH - MMNAVHeight - MMBottomBarH);
         [self.view addSubview:_tableView];
-        tableView.rowHeight = 500;
+        tableView.rowHeight = 400;
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.estimatedRowHeight = 80;
@@ -56,6 +57,7 @@ static NSString *ID = @"CommentCell";
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.mm_header.dk_backgroundColorPicker = DKColorPickerWithKey(NAV);
+    self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(TEST);
     [self.tableView registerNib:[UINib nibWithNibName:@"MMCommentCell" bundle:nil] forCellReuseIdentifier:ID];
     self.commentNav.delegate = self;
 }
@@ -92,10 +94,14 @@ static NSString *ID = @"CommentCell";
     
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
-    view.dk_backgroundColorPicker = DKColorPickerWithKey(NAV);
-    UITableViewHeaderFooterView *hView = (UITableViewHeaderFooterView *)view;
-    hView.textLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    // Background color
+    view.dk_tintColorPicker = DKColorPickerWithKey(BG);
+    
+    // Text Color
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.textLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
