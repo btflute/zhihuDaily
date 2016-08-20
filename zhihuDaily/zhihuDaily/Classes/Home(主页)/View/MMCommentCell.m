@@ -27,11 +27,13 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.contentView.dk_backgroundColorPicker = DKColorPickerWithKey(BG);
     self.conTentLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
     self.nameLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
     self.timeLabel.dk_backgroundColorPicker = DKColorPickerWithKey(BG);
     self.timeLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
+    
 }
 - (IBAction)didCleckedExpandBtn:(UIButton *)sender {
     sender.selected = !sender.selected;
@@ -62,8 +64,14 @@
             NSDictionary *nameAttr = nil;
             if ([self.dk_manager.themeVersion isEqualToString:DKThemeVersionNight]) {
                 nameAttr = @{NSFontAttributeName : [UIFont systemFontOfSize:16],NSForegroundColorAttributeName :[UIColor whiteColor]};
+                [self.expandBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [self.expandBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+                self.expandBtn.backgroundColor = [UIColor darkGrayColor];
             }else{
                 nameAttr = @{NSFontAttributeName : [UIFont systemFontOfSize:16],NSForegroundColorAttributeName :[UIColor blackColor]};
+                self.expandBtn.backgroundColor = [UIColor lightGrayColor];
+                [self.expandBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+                [self.expandBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateSelected];
             }
             
             NSString *name = [[@"//" stringByAppendingString:comment.reply_to.author] stringByAppendingString:@":"];

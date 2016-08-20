@@ -24,6 +24,7 @@
     self.webVIew.dk_backgroundColorPicker = DKColorPickerWithKey(BG);
     [self.webVIew loadRequest:self.request];
     self.webVIew.delegate = self;
+    [self updateBtnEnable];
 }
 
 #pragma mark - IBAction
@@ -45,6 +46,7 @@
 -(void)updateBtnEnable{
     self.backBtn.enabled = self.webVIew.canGoBack;
     self.forwardBtn.enabled = self.webVIew.canGoForward;
+    
 }
 
 #pragma mark - UIWebViewDelegate

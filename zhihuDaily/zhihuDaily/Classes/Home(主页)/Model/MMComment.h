@@ -14,6 +14,7 @@
 @property (nonatomic,copy)NSString *avatar;
 @property (nonatomic,strong)MMReplyComment *reply_to;
 @property (nonatomic,assign)long time;
+@property (nonatomic,assign)long id;
 @property (nonatomic,assign)long likes;
 @property (nonatomic,assign)BOOL isLong;
 @property (nonatomic,assign)BOOL isLike;

@@ -19,6 +19,8 @@
 @property (nonatomic,strong)NSMutableArray<NSMutableArray <MMComment *>*> *allComments;
 @property (nonatomic,weak)UITableView *tableView;
 @property (nonatomic,weak)MMCommentNav *commentNav;
+@property (nonatomic,assign,getter = isLoadingMoreLongComments)BOOL loadingMoreLongComments;
+@property (nonatomic,assign,getter = isLoadingMoreShortComments)BOOL loadingMoreShortComments;
 @end
 static NSString *ID = @"CommentCell";
 @implementation MMCommentController
@@ -108,6 +110,18 @@ static NSString *ID = @"CommentCell";
     MMComment *comment = self.allComments[indexPath.section][indexPath.row];
     return comment.cellHeight;
 }
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (!indexPath.section) {
+        if (indexPath.row == self.allComments.firstObject.count - 5 && !self.isLoadingMoreLongComments) {
+            [self loadMoreLongComments];
+        }
+    }else{
+        if (indexPath.row == self.allComments.lastObject.count - 5&& !self.isLoadingMoreShortComments) {
+            [self loadMoreShortComments];
+        }
+    }
+}
 #pragma mark - setter
 - (void)setCommentParam:(MMCommentParam *)commentParam{
     _commentParam = commentParam;
@@ -134,4 +148,40 @@ static NSString *ID = @"CommentCell";
 - (void)commentCell:(MMCommentCell *)cell teTweetLabelOpened:(BOOL)opened{
     [self.tableView reloadData];
 }
+
+#pragma mark - 加载更多评论
+-(void)loadMoreShortComments{
+    if (self.commentParam.short_comments == self.allComments.lastObject.count ||self.isLoadingMoreShortComments) {
+        return;
+    }
+    self.loadingMoreShortComments = YES;
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    [mgr GET:[NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/story/%lld/short-comments/before/%ld",self.commentParam.id,self.allComments.lastObject.lastObject.id] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self.allComments.lastObject addObjectsFromArray:[MMComment mj_objectArrayWithKeyValuesArray:responseObject[@"comments"]]];
+        self.loadingMoreShortComments = NO;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        MMLog(@"%@",error);
+    }];
+    
+}
+-(void)loadMoreLongComments{
+    if (self.commentParam.long_comments == self.allComments.firstObject.count||self.isLoadingMoreLongComments) {
+        return;
+    }
+    self.loadingMoreLongComments = YES;
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    [mgr GET:[NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/story/%lld/long-comments/before/%ld",self.commentParam.id,self.allComments.firstObject.lastObject.id] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self.allComments.firstObject addObjectsFromArray:[MMComment mj_objectArrayWithKeyValuesArray:responseObject[@"comments"]]];
+        self.loadingMoreLongComments = NO;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        MMLog(@"%@",error);
+    }];
+}
+
 @end
