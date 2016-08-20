@@ -48,6 +48,7 @@
 #define MMScreenW [UIScreen mainScreen].bounds.size.width
 #define MMScreenH [UIScreen mainScreen].bounds.size.height
 #define MMNaviBarH 64
+#define MMBottomBarH 44
 //主窗口
 #define KeyWindow [UIApplication sharedApplication].keyWindow
 

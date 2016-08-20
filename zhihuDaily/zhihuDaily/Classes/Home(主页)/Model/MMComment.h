@@ -1,14 +1,14 @@
 //
-//  MMConmment.h
+//  MMComment.h
 //  zhihuDaily
 //
-//  Created by  陈聪 on 16/8/14.
+//  Created by  陈聪 on 16/8/18.
 //  Copyright © 2016年 cc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 @class MMReplyComment;
-@interface MMConmment : NSObject
+@interface MMComment : NSObject
 @property (nonatomic,copy)NSString *author;
 @property (nonatomic,copy)NSString *content;
 @property (nonatomic,copy)NSString *avatar;
@@ -18,4 +18,5 @@
 @property (nonatomic,assign)BOOL isLong;
 @property (nonatomic,assign)BOOL isLike;
 @property (nonatomic,assign)BOOL isOpen;
+@property (nonatomic,assign)CGFloat cellHeight;
 @end

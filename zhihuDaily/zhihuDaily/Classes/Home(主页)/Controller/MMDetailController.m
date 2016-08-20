@@ -20,6 +20,8 @@
 #import "MMNavigationController.h"
 #import "MMRecommender.h"
 #import "MMWebViewController.h"
+#import "MMCommentController.h"
+#import "MMCommentParam.h"
 @interface MMDetailController ()<UIWebViewDelegate,UIScrollViewDelegate,MMStoryNavigationViewDelegate>
 @property (nonatomic,weak) MMTopView *topView;
 @property (nonatomic,weak) UIWebView *webView;
@@ -148,6 +150,13 @@
             
             break;
         case 4:
+            {
+                MMCommentController *vc =  [[MMCommentController alloc]init];
+                MMCommentParam *param = [MMCommentParam commentWithId:self.story.id longComments:self.storyNavigationView.extraStory.long_comments shortComments:self.storyNavigationView.extraStory.short_comments];
+                vc.commentParam = param;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
             break;
         default:
             break;

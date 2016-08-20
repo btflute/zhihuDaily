@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MMComment,MMCommentCell;
+@protocol MMCommentCellDelegate <NSObject>
+
+@optional
+- (void)commentCell:(MMCommentCell *)cell teTweetLabelOpened:(BOOL)opened;
+@end
 
 @interface MMCommentCell : UITableViewCell
-
+@property (nonatomic,strong)MMComment *comment;
+@property (nonatomic,weak)id<MMCommentCellDelegate> delegate;
 @end

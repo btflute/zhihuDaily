@@ -76,12 +76,16 @@
 		3BD238B11D11BBD1002CC6DC /* MMHomeStoryStoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD238B01D11BBD1002CC6DC /* MMHomeStoryStoryItem.m */; };
 		3BD238B81D1390EF002CC6DC /* MMHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD238B61D1390EE002CC6DC /* MMHomeCell.m */; };
 		3BD238B91D1390EF002CC6DC /* MMHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD238B71D1390EE002CC6DC /* MMHomeCell.xib */; };
-		3BEF8AF11D609A0400490E29 /* MMConmment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8AF01D609A0400490E29 /* MMConmment.m */; };
 		3BEF8AF41D609B8D00490E29 /* MMReplyComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8AF31D609B8D00490E29 /* MMReplyComment.m */; };
 		3BEF8AF71D616FC400490E29 /* MMCommentParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8AF61D616FC400490E29 /* MMCommentParam.m */; };
 		3BEF8AFA1D61751A00490E29 /* MMCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8AF91D61751A00490E29 /* MMCommentController.m */; };
 		3BEF8AFE1D619A8A00490E29 /* MMCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8AFC1D619A8A00490E29 /* MMCommentCell.m */; };
 		3BEF8AFF1D619A8A00490E29 /* MMCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF8AFD1D619A8A00490E29 /* MMCommentCell.xib */; };
+		3BEF8B021D65538600490E29 /* MMComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B011D65538600490E29 /* MMComment.m */; };
+		3BEF8B081D65B5AD00490E29 /* MMCommentPannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B071D65B5AD00490E29 /* MMCommentPannel.m */; };
+		3BEF8B0A1D65B5C300490E29 /* MMCommentPannel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF8B091D65B5C300490E29 /* MMCommentPannel.xib */; };
+		3BEF8B0D1D65D7B500490E29 /* MMCommentNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B0C1D65D7B500490E29 /* MMCommentNav.m */; };
+		3BEF8B0F1D65D7C700490E29 /* MMCommentNav.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF8B0E1D65D7C700490E29 /* MMCommentNav.xib */; };
 		3BF20CDF1D1C15F600C3208A /* UINavigationBar+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF20CDE1D1C15F600C3208A /* UINavigationBar+Color.m */; };
 /* End PBXBuildFile section */
 
@@ -217,8 +221,6 @@
 		3BD238B51D1390EE002CC6DC /* MMHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomeCell.h; sourceTree = "<group>"; };
 		3BD238B61D1390EE002CC6DC /* MMHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomeCell.m; sourceTree = "<group>"; };
 		3BD238B71D1390EE002CC6DC /* MMHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMHomeCell.xib; sourceTree = "<group>"; };
-		3BEF8AEF1D609A0400490E29 /* MMConmment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMConmment.h; sourceTree = "<group>"; };
-		3BEF8AF01D609A0400490E29 /* MMConmment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMConmment.m; sourceTree = "<group>"; };
 		3BEF8AF21D609B8D00490E29 /* MMReplyComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMReplyComment.h; sourceTree = "<group>"; };
 		3BEF8AF31D609B8D00490E29 /* MMReplyComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMReplyComment.m; sourceTree = "<group>"; };
 		3BEF8AF51D616FC400490E29 /* MMCommentParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCommentParam.h; sourceTree = "<group>"; };
@@ -228,6 +230,14 @@
 		3BEF8AFB1D619A8A00490E29 /* MMCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCommentCell.h; sourceTree = "<group>"; };
 		3BEF8AFC1D619A8A00490E29 /* MMCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCommentCell.m; sourceTree = "<group>"; };
 		3BEF8AFD1D619A8A00490E29 /* MMCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMCommentCell.xib; sourceTree = "<group>"; };
+		3BEF8B001D65538600490E29 /* MMComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMComment.h; sourceTree = "<group>"; };
+		3BEF8B011D65538600490E29 /* MMComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMComment.m; sourceTree = "<group>"; };
+		3BEF8B061D65B5AD00490E29 /* MMCommentPannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCommentPannel.h; sourceTree = "<group>"; };
+		3BEF8B071D65B5AD00490E29 /* MMCommentPannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCommentPannel.m; sourceTree = "<group>"; };
+		3BEF8B091D65B5C300490E29 /* MMCommentPannel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMCommentPannel.xib; sourceTree = "<group>"; };
+		3BEF8B0B1D65D7B400490E29 /* MMCommentNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCommentNav.h; sourceTree = "<group>"; };
+		3BEF8B0C1D65D7B500490E29 /* MMCommentNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCommentNav.m; sourceTree = "<group>"; };
+		3BEF8B0E1D65D7C700490E29 /* MMCommentNav.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMCommentNav.xib; sourceTree = "<group>"; };
 		3BF20CDD1D1C15F600C3208A /* UINavigationBar+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Color.h"; sourceTree = "<group>"; };
 		3BF20CDE1D1C15F600C3208A /* UINavigationBar+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Color.m"; sourceTree = "<group>"; };
 		60CAE9B21DC030766D3FBD1D /* Pods-zhihuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhihuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-zhihuDaily/Pods-zhihuDaily.release.xcconfig"; sourceTree = "<group>"; };
@@ -351,8 +361,8 @@
 				3B8BEF471D53309C00A597A5 /* MMRecommenderItem.m */,
 				3B8BEF491D5330F600A597A5 /* MMRecommenderResult.h */,
 				3B8BEF4A1D5330F600A597A5 /* MMRecommenderResult.m */,
-				3BEF8AEF1D609A0400490E29 /* MMConmment.h */,
-				3BEF8AF01D609A0400490E29 /* MMConmment.m */,
+				3BEF8B001D65538600490E29 /* MMComment.h */,
+				3BEF8B011D65538600490E29 /* MMComment.m */,
 				3BEF8AF21D609B8D00490E29 /* MMReplyComment.h */,
 				3BEF8AF31D609B8D00490E29 /* MMReplyComment.m */,
 				3BEF8AF51D616FC400490E29 /* MMCommentParam.h */,
@@ -383,6 +393,12 @@
 				3BEF8AFB1D619A8A00490E29 /* MMCommentCell.h */,
 				3BEF8AFC1D619A8A00490E29 /* MMCommentCell.m */,
 				3BEF8AFD1D619A8A00490E29 /* MMCommentCell.xib */,
+				3BEF8B061D65B5AD00490E29 /* MMCommentPannel.h */,
+				3BEF8B071D65B5AD00490E29 /* MMCommentPannel.m */,
+				3BEF8B091D65B5C300490E29 /* MMCommentPannel.xib */,
+				3BEF8B0B1D65D7B400490E29 /* MMCommentNav.h */,
+				3BEF8B0C1D65D7B500490E29 /* MMCommentNav.m */,
+				3BEF8B0E1D65D7C700490E29 /* MMCommentNav.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -779,7 +795,9 @@
 				3B3BA9291D54B48A00C14D35 /* MMDay.css in Resources */,
 				3B8BEF451D50921600A597A5 /* MMStoryNavigationView.xib in Resources */,
 				3B3BA9461D5E2C0500C14D35 /* MMEditorCell.xib in Resources */,
+				3BEF8B0F1D65D7C700490E29 /* MMCommentNav.xib in Resources */,
 				3B3BA94B1D60873F00C14D35 /* MMWebViewController.xib in Resources */,
+				3BEF8B0A1D65B5C300490E29 /* MMCommentPannel.xib in Resources */,
 				3B3BA9211D5361C600C14D35 /* MMEditorDetailController.xib in Resources */,
 				3BD238B91D1390EF002CC6DC /* MMHomeCell.xib in Resources */,
 				3B8BEF371D507DBC00A597A5 /* MMTopView.xib in Resources */,
@@ -865,6 +883,7 @@
 				3B8BEF2E1D507B2400A597A5 /* MASViewConstraint.m in Sources */,
 				3B8BEF2B1D507B2400A597A5 /* MASConstraintMaker.m in Sources */,
 				3B3BA93C1D5C6CE000C14D35 /* MBProgressHUD+YS.m in Sources */,
+				3BEF8B021D65538600490E29 /* MMComment.m in Sources */,
 				3B8BEED61D4DA7B800A597A5 /* UIImage+ImageEffects.m in Sources */,
 				3B3BA94A1D60873F00C14D35 /* MMWebViewController.m in Sources */,
 				3B2F456D1D0CF04F0037F5D1 /* SYLeftDrawerCell.m in Sources */,
@@ -873,6 +892,7 @@
 				3B2F454F1D0C24160037F5D1 /* MMHomeController.m in Sources */,
 				3B8BEF401D508DB000A597A5 /* MMExtraStory.m in Sources */,
 				3BD238AB1D118521002CC6DC /* MMAppSettings.m in Sources */,
+				3BEF8B0D1D65D7B500490E29 /* MMCommentNav.m in Sources */,
 				3BA735A51D17B51600DB6A18 /* MMHomeStoryTopStoryItem.m in Sources */,
 				3B8BEF291D507B2400A597A5 /* MASCompositeConstraint.m in Sources */,
 				3B8BEF351D507DAB00A597A5 /* MMTopView.m in Sources */,
@@ -900,13 +920,13 @@
 				3B2F44F91D0BF1530037F5D1 /* main.m in Sources */,
 				3B8BEEDF1D4F4AD300A597A5 /* MMTableHeader.m in Sources */,
 				3B2F45611D0C2D210037F5D1 /* UIImageView+MMExtension.m in Sources */,
+				3BEF8B081D65B5AD00490E29 /* MMCommentPannel.m in Sources */,
 				3B8BEECF1D4DA4E300A597A5 /* ParallaxHeaderView.m in Sources */,
 				3B8BEED91D4E20A600A597A5 /* MMRefreshView.m in Sources */,
 				3B2F45701D0CF0AC0037F5D1 /* SYTheme.m in Sources */,
 				3B8BEED31D4DA72700A597A5 /* myUILabel.m in Sources */,
 				3B8BEF4E1D533B3500A597A5 /* MMBaseViewController.m in Sources */,
 				3B2F45601D0C2D210037F5D1 /* UIImage+MMExtension.m in Sources */,
-				3BEF8AF11D609A0400490E29 /* MMConmment.m in Sources */,
 				3B8BEECB1D4D97CA00A597A5 /* DrawerController.m in Sources */,
 				3B2F45691D0CEF510037F5D1 /* SYLeftDrawerController.m in Sources */,
 			);
