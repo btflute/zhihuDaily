@@ -10,6 +10,7 @@
 #import "MMComment.h"
 #import "UIImageView+WebCache.h"
 #import "MMReplyComment.h"
+#import "UIImage+circleImage.h"
 @interface MMCommentCell ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -48,7 +49,9 @@
 //    [_comment removeObserver:self forKeyPath:@"isLike"];
     _comment = comment;
     [comment addObserver:self forKeyPath:@"isLike" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:comment.avatar]];
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:comment.avatar] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.iconImageView.image = [image circleMyImage];
+    }];
     self.conTentLabel.text = comment.content;
     self.nameLabel.text = comment.author;
     if (comment.reply_to) {
@@ -142,6 +145,7 @@
         self.likeImageView.image = [UIImage imageNamed:@"Comment_Vote"];
         self.likeCountLabel.textColor = MMColor(128, 128, 128);
     }
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%ld",self.comment.likes];
 }
 
 - (void)setFrame:(CGRect)frame{

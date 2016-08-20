@@ -86,6 +86,7 @@
 		3BEF8B0A1D65B5C300490E29 /* MMCommentPannel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF8B091D65B5C300490E29 /* MMCommentPannel.xib */; };
 		3BEF8B0D1D65D7B500490E29 /* MMCommentNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B0C1D65D7B500490E29 /* MMCommentNav.m */; };
 		3BEF8B0F1D65D7C700490E29 /* MMCommentNav.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF8B0E1D65D7C700490E29 /* MMCommentNav.xib */; };
+		3BEF8B151D68762800490E29 /* UIImage+circleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B141D68762800490E29 /* UIImage+circleImage.m */; };
 		3BF20CDF1D1C15F600C3208A /* UINavigationBar+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF20CDE1D1C15F600C3208A /* UINavigationBar+Color.m */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +239,8 @@
 		3BEF8B0B1D65D7B400490E29 /* MMCommentNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCommentNav.h; sourceTree = "<group>"; };
 		3BEF8B0C1D65D7B500490E29 /* MMCommentNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCommentNav.m; sourceTree = "<group>"; };
 		3BEF8B0E1D65D7C700490E29 /* MMCommentNav.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMCommentNav.xib; sourceTree = "<group>"; };
+		3BEF8B131D68762800490E29 /* UIImage+circleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+circleImage.h"; sourceTree = "<group>"; };
+		3BEF8B141D68762800490E29 /* UIImage+circleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+circleImage.m"; sourceTree = "<group>"; };
 		3BF20CDD1D1C15F600C3208A /* UINavigationBar+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Color.h"; sourceTree = "<group>"; };
 		3BF20CDE1D1C15F600C3208A /* UINavigationBar+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Color.m"; sourceTree = "<group>"; };
 		60CAE9B21DC030766D3FBD1D /* Pods-zhihuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhihuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-zhihuDaily/Pods-zhihuDaily.release.xcconfig"; sourceTree = "<group>"; };
@@ -280,7 +283,6 @@
 			children = (
 				3B8BEF0E1D507B2400A597A5 /* libs */,
 				3B2F45281D0BF5650037F5D1 /* Classes */,
-				3BD238A41D1184F9002CC6DC /* Settings(设置) */,
 				3B2F44F71D0BF1530037F5D1 /* Supporting Files */,
 			);
 			path = zhihuDaily;
@@ -299,6 +301,7 @@
 		3B2F45281D0BF5650037F5D1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3BD238A41D1184F9002CC6DC /* Settings(设置) */,
 				3B2F45291D0BF5650037F5D1 /* Home(主页) */,
 				3B2F452D1D0BF5650037F5D1 /* Launch(启动) */,
 				3B2F45311D0BF5650037F5D1 /* LeftDrawer(左边抽屉) */,
@@ -528,6 +531,8 @@
 				3B8BEED51D4DA7B800A597A5 /* UIImage+ImageEffects.m */,
 				3BA7359D1D140DD200DB6A18 /* NSObject+Date.h */,
 				3BA7359E1D140DD200DB6A18 /* NSObject+Date.m */,
+				3BEF8B131D68762800490E29 /* UIImage+circleImage.h */,
+				3BEF8B141D68762800490E29 /* UIImage+circleImage.m */,
 				3BF20CDD1D1C15F600C3208A /* UINavigationBar+Color.h */,
 				3BF20CDE1D1C15F600C3208A /* UINavigationBar+Color.m */,
 				3B2F45501D0C2D210037F5D1 /* Foundation+Log.m */,
@@ -678,8 +683,7 @@
 				3BD238A71D1184F9002CC6DC /* Tool */,
 				3BD238A81D1184F9002CC6DC /* View */,
 			);
-			name = "Settings(设置)";
-			path = "Classes/Settings(设置)";
+			path = "Settings(设置)";
 			sourceTree = "<group>";
 		};
 		3BD238A51D1184F9002CC6DC /* Controller */ = {
@@ -885,6 +889,7 @@
 				3B3BA93C1D5C6CE000C14D35 /* MBProgressHUD+YS.m in Sources */,
 				3BEF8B021D65538600490E29 /* MMComment.m in Sources */,
 				3B8BEED61D4DA7B800A597A5 /* UIImage+ImageEffects.m in Sources */,
+				3BEF8B151D68762800490E29 /* UIImage+circleImage.m in Sources */,
 				3B3BA94A1D60873F00C14D35 /* MMWebViewController.m in Sources */,
 				3B2F456D1D0CF04F0037F5D1 /* SYLeftDrawerCell.m in Sources */,
 				3BEF8AF71D616FC400490E29 /* MMCommentParam.m in Sources */,

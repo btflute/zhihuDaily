@@ -25,7 +25,11 @@
 
 - (void)setEditor:(MMEditor *)editor{
     _editor = editor;
-    editor.avatar?[self.iconImageView sd_setImageWithURL:[NSURL URLWithString:editor.avatar]]:nil;
+    if (editor.avatar.length>0) {
+        [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:editor.avatar] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            self.iconImageView.image = [image circleImage];
+        }];
+    }
     self.nameLabel.text = editor.name;
     self.nameLabel.dk_textColorPicker = DKColorPickerWithKey(TEXT);
     

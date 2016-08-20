@@ -84,8 +84,9 @@
             make.centerX.mas_equalTo(weakSelf.view);
             make.centerY.mas_equalTo(weakSelf.view.mas_bottom);
         }];
+//        footer.backgroundColor = [UIColor yellowColor];
         UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"upArrow"]];
-        [footer addSubview:imageView];
+        [_footer addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(15, 20));
             make.centerY.mas_equalTo(footer);
@@ -187,9 +188,11 @@
             self.header.text = @"已经是第一篇了";
             [self.header sizeToFit];
             self.downArrow.hidden = YES;
-        }else if (type & MMStoryPositionTypeLast){
+        }
+        if (type & MMStoryPositionTypeLast){
             self.footer.text = @"已经是最后一篇了";
-            [self.header sizeToFit];
+            [self.footer sizeToFit];
+            self.footer.textColor = [UIColor greenColor];
             self.upArrow.hidden = YES;
         }
     }
@@ -299,6 +302,9 @@
 -(void)nextStory{
     if ([self.delegate respondsToSelector:@selector(nextStoryForDetailController:story:)]) {
         MMHomeStoryStoryItem *story = [self.delegate nextStoryForDetailController:self story:self.story];
+        if (!story) {
+            return;
+        }
         MMDetailController *vc  = [[MMDetailController alloc]init];
         vc.delegate = self.navigationController.childViewControllers[0];
         vc.story = story;

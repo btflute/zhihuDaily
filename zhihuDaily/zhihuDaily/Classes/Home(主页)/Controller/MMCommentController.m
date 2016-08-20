@@ -15,15 +15,19 @@
 #import "MMCommentNav.h"
 #import <AFNetworking/AFNetworking.h>
 #import <MJExtension/MJExtension.h>
-@interface MMCommentController ()<UITableViewDelegate,UITableViewDataSource,MMCommentNavDelegate,MMCommentCellDelegate>
+#import "MBProgressHUD+YS.h"
+@interface MMCommentController ()<UITableViewDelegate,UITableViewDataSource,MMCommentNavDelegate,MMCommentCellDelegate,MMCommentPannelDelegate>
 @property (nonatomic,strong)NSMutableArray<NSMutableArray <MMComment *>*> *allComments;
 @property (nonatomic,weak)UITableView *tableView;
 @property (nonatomic,weak)MMCommentNav *commentNav;
 @property (nonatomic,assign,getter = isLoadingMoreLongComments)BOOL loadingMoreLongComments;
 @property (nonatomic,assign,getter = isLoadingMoreShortComments)BOOL loadingMoreShortComments;
+@property (nonatomic,weak)MMCommentCell *cell;
+@property (nonatomic,weak)MMCommentPannel *pannel;
 @end
 static NSString *ID = @"CommentCell";
 @implementation MMCommentController
+#pragma mark - 懒加载
 - (UITableView *)tableView{
     if (_tableView == nil) {
         UITableView *tableView = [[UITableView alloc]init];
@@ -55,6 +59,7 @@ static NSString *ID = @"CommentCell";
     }
     return _allComments;
 }
+#pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -62,6 +67,21 @@ static NSString *ID = @"CommentCell";
     self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(TEST);
     [self.tableView registerNib:[UINib nibWithNibName:@"MMCommentCell" bundle:nil] forCellReuseIdentifier:ID];
     self.commentNav.delegate = self;
+    
+    [self setupGesture];
+}
+
+- (void)setupGesture{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
+    [self.tableView addGestureRecognizer:tap];
+}
+
+-(void)tap:(UITapGestureRecognizer *)tapGesture{
+    if (self.pannel) {
+        [self removePannel];
+    }else{
+        [self addCommentViewWithLocation:[tapGesture locationInView:self.tableView]];
+    }
 }
 
 #pragma mark - MMCommentNavDelegate
@@ -120,6 +140,13 @@ static NSString *ID = @"CommentCell";
         if (indexPath.row == self.allComments.lastObject.count - 5&& !self.isLoadingMoreShortComments) {
             [self loadMoreShortComments];
         }
+    }
+}
+
+#pragma mark - UIScrollViewDelegate{
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (self.pannel) {
+        [self removePannel];
     }
 }
 #pragma mark - setter
@@ -182,6 +209,62 @@ static NSString *ID = @"CommentCell";
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         MMLog(@"%@",error);
     }];
+}
+
+#pragma mark - commentView
+- (void)addCommentViewWithLocation:(CGPoint)location{
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    self.cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (!self.cell) {
+        return;
+    }
+    MMCommentPannel *commentPannel = [MMCommentPannel commentPannelWithLiked:self.cell.comment.isLike];
+    commentPannel.delegate = self;
+    self.pannel = commentPannel;
+    [self.tableView addSubview:commentPannel];
+    commentPannel.frame = CGRectMake(location.x, location.y - commentPannel.height, commentPannel.width, commentPannel.height);
+    self.pannel.alpha = 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.pannel.alpha = 1;
+    }];
+}
+- (void)removePannel{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.pannel.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.pannel removeFromSuperview];
+    }];
+    
+    self.cell = nil;
+}
+
+#pragma mark - MMCommentPannelDelegate
+- (void)commentPannel:(MMCommentPannel *)commentPannel indexOfButtonclicked:(NSUInteger)index{
+    switch (index) {
+        case 0:
+            if (self.cell.comment.isLike) {
+                self.cell.comment.likes -= 1;
+                self.cell.comment.isLike = NO;
+                
+            }else{
+                self.cell.comment.likes += 1;
+                self.cell.comment.isLike = YES;
+                
+            }
+            [self removePannel];
+            break;
+        case 1:
+            break;
+        case 2:
+            [UIPasteboard generalPasteboard].string = self.cell.comment.content;
+            [MBProgressHUD showSuccess:@"复制成功"];
+            [self removePannel];
+            break;
+        case 3:
+            break;
+        default:
+            break;
+    }
 }
 
 @end

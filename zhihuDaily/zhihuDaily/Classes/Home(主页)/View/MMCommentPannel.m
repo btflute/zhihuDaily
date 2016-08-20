@@ -25,6 +25,12 @@
     
     return commentPannel;
 }
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.layer.cornerRadius = 9;
+    self.clipsToBounds = YES;
+}
 - (IBAction)btnClicked:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(commentPannel:indexOfButtonclicked:)]) {
         [self.delegate commentPannel:self indexOfButtonclicked:sender.tag];
