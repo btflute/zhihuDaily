@@ -222,7 +222,7 @@ static NSString *ID = @"CommentCell";
     commentPannel.delegate = self;
     self.pannel = commentPannel;
     [self.tableView addSubview:commentPannel];
-    commentPannel.frame = CGRectMake(location.x, location.y - commentPannel.height, commentPannel.width, commentPannel.height);
+    commentPannel.frame = CGRectMake(22, location.y - commentPannel.height, commentPannel.width, commentPannel.height);
     self.pannel.alpha = 0;
     [UIView animateWithDuration:0.5 animations:^{
         self.pannel.alpha = 1;

@@ -11,6 +11,7 @@
 #import "MMHomeController.h"
 #import "SYLeftDrawerController.h"
 #import "MMNavigationController.h"
+#import <AFNetworking.h>
 //#import "MMLaunchViewController.h"
 @interface AppDelegate ()
 
@@ -29,7 +30,7 @@
     drawerController.delegate  = vc;
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
-    
+    [[AFNetworkReachabilityManager sharedManager]startMonitoring];
     return YES;
 }
 

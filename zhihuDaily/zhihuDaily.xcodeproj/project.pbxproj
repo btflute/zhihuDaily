@@ -87,6 +87,14 @@
 		3BEF8B0D1D65D7B500490E29 /* MMCommentNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B0C1D65D7B500490E29 /* MMCommentNav.m */; };
 		3BEF8B0F1D65D7C700490E29 /* MMCommentNav.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF8B0E1D65D7C700490E29 /* MMCommentNav.xib */; };
 		3BEF8B151D68762800490E29 /* UIImage+circleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B141D68762800490E29 /* UIImage+circleImage.m */; };
+		3BEF8B231D6994A700490E29 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B181D6994A700490E29 /* FMDatabase.m */; };
+		3BEF8B241D6994A700490E29 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B1A1D6994A700490E29 /* FMDatabaseAdditions.m */; };
+		3BEF8B251D6994A700490E29 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B1C1D6994A700490E29 /* FMDatabasePool.m */; };
+		3BEF8B261D6994A700490E29 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B1E1D6994A700490E29 /* FMDatabaseQueue.m */; };
+		3BEF8B271D6994A700490E29 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B211D6994A700490E29 /* FMResultSet.m */; };
+		3BEF8B281D6994A700490E29 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF8B221D6994A700490E29 /* Info.plist */; };
+		3BEF8B2B1D69964000490E29 /* MMCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B2A1D69964000490E29 /* MMCacheTool.m */; };
+		3BEF8B2E1D6AA00000490E29 /* MMSourceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B2D1D6AA00000490E29 /* MMSourceTool.m */; };
 		3BF20CDF1D1C15F600C3208A /* UINavigationBar+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF20CDE1D1C15F600C3208A /* UINavigationBar+Color.m */; };
 /* End PBXBuildFile section */
 
@@ -241,6 +249,22 @@
 		3BEF8B0E1D65D7C700490E29 /* MMCommentNav.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMCommentNav.xib; sourceTree = "<group>"; };
 		3BEF8B131D68762800490E29 /* UIImage+circleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+circleImage.h"; sourceTree = "<group>"; };
 		3BEF8B141D68762800490E29 /* UIImage+circleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+circleImage.m"; sourceTree = "<group>"; };
+		3BEF8B171D6994A700490E29 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		3BEF8B181D6994A700490E29 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		3BEF8B191D6994A700490E29 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		3BEF8B1A1D6994A700490E29 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		3BEF8B1B1D6994A700490E29 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		3BEF8B1C1D6994A700490E29 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		3BEF8B1D1D6994A700490E29 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		3BEF8B1E1D6994A700490E29 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		3BEF8B1F1D6994A700490E29 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		3BEF8B201D6994A700490E29 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		3BEF8B211D6994A700490E29 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		3BEF8B221D6994A700490E29 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BEF8B291D69964000490E29 /* MMCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCacheTool.h; sourceTree = "<group>"; };
+		3BEF8B2A1D69964000490E29 /* MMCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCacheTool.m; sourceTree = "<group>"; };
+		3BEF8B2C1D6AA00000490E29 /* MMSourceTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSourceTool.h; sourceTree = "<group>"; };
+		3BEF8B2D1D6AA00000490E29 /* MMSourceTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSourceTool.m; sourceTree = "<group>"; };
 		3BF20CDD1D1C15F600C3208A /* UINavigationBar+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Color.h"; sourceTree = "<group>"; };
 		3BF20CDE1D1C15F600C3208A /* UINavigationBar+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Color.m"; sourceTree = "<group>"; };
 		60CAE9B21DC030766D3FBD1D /* Pods-zhihuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhihuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-zhihuDaily/Pods-zhihuDaily.release.xcconfig"; sourceTree = "<group>"; };
@@ -598,6 +622,10 @@
 		3B2F453F1D0BF5650037F5D1 /* Tool(工具类) */ = {
 			isa = PBXGroup;
 			children = (
+				3BEF8B291D69964000490E29 /* MMCacheTool.h */,
+				3BEF8B2A1D69964000490E29 /* MMCacheTool.m */,
+				3BEF8B2C1D6AA00000490E29 /* MMSourceTool.h */,
+				3BEF8B2D1D6AA00000490E29 /* MMSourceTool.m */,
 			);
 			path = "Tool(工具类)";
 			sourceTree = "<group>";
@@ -637,6 +665,7 @@
 		3B8BEF0E1D507B2400A597A5 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				3BEF8B161D6994A700490E29 /* fmdb */,
 				3B3BA9361D5C6CE000C14D35 /* MBProgressHUD */,
 				3B8BEF0F1D507B2400A597A5 /* Masonry */,
 			);
@@ -714,6 +743,25 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3BEF8B161D6994A700490E29 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				3BEF8B171D6994A700490E29 /* FMDatabase.h */,
+				3BEF8B181D6994A700490E29 /* FMDatabase.m */,
+				3BEF8B191D6994A700490E29 /* FMDatabaseAdditions.h */,
+				3BEF8B1A1D6994A700490E29 /* FMDatabaseAdditions.m */,
+				3BEF8B1B1D6994A700490E29 /* FMDatabasePool.h */,
+				3BEF8B1C1D6994A700490E29 /* FMDatabasePool.m */,
+				3BEF8B1D1D6994A700490E29 /* FMDatabaseQueue.h */,
+				3BEF8B1E1D6994A700490E29 /* FMDatabaseQueue.m */,
+				3BEF8B1F1D6994A700490E29 /* FMDB.h */,
+				3BEF8B201D6994A700490E29 /* FMResultSet.h */,
+				3BEF8B211D6994A700490E29 /* FMResultSet.m */,
+				3BEF8B221D6994A700490E29 /* Info.plist */,
+			);
+			path = fmdb;
 			sourceTree = "<group>";
 		};
 		6192396E58851F76A9246258 /* Frameworks */ = {
@@ -804,6 +852,7 @@
 				3BEF8B0A1D65B5C300490E29 /* MMCommentPannel.xib in Resources */,
 				3B3BA9211D5361C600C14D35 /* MMEditorDetailController.xib in Resources */,
 				3BD238B91D1390EF002CC6DC /* MMHomeCell.xib in Resources */,
+				3BEF8B281D6994A700490E29 /* Info.plist in Resources */,
 				3B8BEF371D507DBC00A597A5 /* MMTopView.xib in Resources */,
 				3BEF8AFF1D619A8A00490E29 /* MMCommentCell.xib in Resources */,
 				3B3BA93D1D5C6CE000C14D35 /* MBProgressHUD.bundle in Resources */,
@@ -872,6 +921,7 @@
 				3B3BA9201D5361C600C14D35 /* MMEditorDetailController.m in Sources */,
 				3B8BEF3A1D507F9100A597A5 /* MMDetailStory.m in Sources */,
 				3B8BEF431D50901000A597A5 /* MMStoryNavigationView.m in Sources */,
+				3BEF8B2B1D69964000490E29 /* MMCacheTool.m in Sources */,
 				3B2F45791D0D089B0037F5D1 /* MMThemeController.m in Sources */,
 				3B2F45431D0C060D0037F5D1 /* MMMainViewController.m in Sources */,
 				3B3BA93E1D5C6CE000C14D35 /* MBProgressHUD.m in Sources */,
@@ -909,20 +959,25 @@
 				3B8BEF4B1D5330F600A597A5 /* MMRecommenderResult.m in Sources */,
 				3B8BEF2C1D507B2400A597A5 /* MASLayoutConstraint.m in Sources */,
 				3B8BEF2F1D507B2400A597A5 /* NSArray+MASAdditions.m in Sources */,
+				3BEF8B271D6994A700490E29 /* FMResultSet.m in Sources */,
 				3B2F455E1D0C2D210037F5D1 /* NSData+MMExtension.m in Sources */,
 				3B3BA9451D5E2C0500C14D35 /* MMEditorCell.m in Sources */,
 				3B3BA91C1D53611500C14D35 /* MMEditorController.m in Sources */,
 				3B2F45621D0C2D210037F5D1 /* UIView+LBExtension.m in Sources */,
+				3BEF8B261D6994A700490E29 /* FMDatabaseQueue.m in Sources */,
 				3B2F455F1D0C2D210037F5D1 /* UIBarButtonItem+Extend.m in Sources */,
 				3B2F44FC1D0BF1530037F5D1 /* AppDelegate.m in Sources */,
 				3BF20CDF1D1C15F600C3208A /* UINavigationBar+Color.m in Sources */,
 				3B8BEF301D507B2400A597A5 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				3BEF8B251D6994A700490E29 /* FMDatabasePool.m in Sources */,
 				3BD238AE1D11BAC9002CC6DC /* MMHomeStoryItem.m in Sources */,
 				3BEF8AF41D609B8D00490E29 /* MMReplyComment.m in Sources */,
 				3B8BEF311D507B2400A597A5 /* View+MASAdditions.m in Sources */,
 				3B3BA9321D5A2FCE00C14D35 /* MMStoryListController.m in Sources */,
 				3B8BEEDC1D4F498800A597A5 /* MMDetailController.m in Sources */,
 				3B2F44F91D0BF1530037F5D1 /* main.m in Sources */,
+				3BEF8B241D6994A700490E29 /* FMDatabaseAdditions.m in Sources */,
+				3BEF8B2E1D6AA00000490E29 /* MMSourceTool.m in Sources */,
 				3B8BEEDF1D4F4AD300A597A5 /* MMTableHeader.m in Sources */,
 				3B2F45611D0C2D210037F5D1 /* UIImageView+MMExtension.m in Sources */,
 				3BEF8B081D65B5AD00490E29 /* MMCommentPannel.m in Sources */,
@@ -933,6 +988,7 @@
 				3B8BEF4E1D533B3500A597A5 /* MMBaseViewController.m in Sources */,
 				3B2F45601D0C2D210037F5D1 /* UIImage+MMExtension.m in Sources */,
 				3B8BEECB1D4D97CA00A597A5 /* DrawerController.m in Sources */,
+				3BEF8B231D6994A700490E29 /* FMDatabase.m in Sources */,
 				3B2F45691D0CEF510037F5D1 /* SYLeftDrawerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
