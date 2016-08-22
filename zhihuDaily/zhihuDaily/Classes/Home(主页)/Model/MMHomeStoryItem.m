@@ -9,6 +9,7 @@
 #import "MMHomeStoryItem.h"
 #import "MMHomeStoryStoryItem.h"
 #import "MMHomeStoryTopStoryItem.h"
+#import "MJExtension.h"
 @implementation MMHomeStoryItem
-
+MJCodingImplementation
 @end

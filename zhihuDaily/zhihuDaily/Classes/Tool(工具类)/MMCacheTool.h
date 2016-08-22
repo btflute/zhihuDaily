@@ -10,12 +10,21 @@
 @class SYTheme,MMHomeStoryStoryItem,MMHomeStoryItem;
 @interface MMCacheTool : NSObject
 + (void)cacheThemeWithTheme:(SYTheme *)theme;
++ (NSArray *)queryThemes;
+
 +(NSArray *)queryStoryListWithDate:(NSString *)dateString;
+
 + (void)cacheStoryListWithArray:(NSArray *)array date:(NSString *)dateString;
+
 +(MMHomeStoryStoryItem *)queryStoryWithID:(long long)ID;
+
 +(void)cacheStoryWithObject:(MMHomeStoryStoryItem *)story;
+
 +(void)cacheThemeStoryListWithID:(int)themeid storyArray:(NSArray *)array;
+
 +(NSArray *)queryThemeStoryListWithMinID:(long long)storyid themeid:(int)themeid;
+
 +(MMHomeStoryItem *)queryStoryLatestWithDate:(NSString *)dateString;
-+ (void)cacheStoryLatestWithArray:(MMHomeStoryItem *)item;
+
++ (void)cacheStoryLatestWithItem:(MMHomeStoryItem *)item;
 @end

@@ -15,6 +15,9 @@
     dateFormatter.dateFormat = @"yyyyMMdd";
     return [dateFormatter stringFromDate:date];
 }
++(NSString *)getDate{
+    return [[[self alloc]init] getDate];
+}
 
 -(NSString *)getSpecifyDate:(NSString *)specifyDate{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];

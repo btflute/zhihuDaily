@@ -22,15 +22,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [[AFNetworkReachabilityManager sharedManager]startMonitoring];
     //    self.window.rootViewController = [[MMMainViewController alloc]init];
     SYLeftDrawerController *drawerController = [[SYLeftDrawerController alloc]init];
     MMNavigationController *nav = [[MMNavigationController alloc]initWithRootViewController:[[MMHomeController alloc]init]];
     //                MMMainViewController *vc = [[MMMainViewController alloc]initWithContentViewController:nav leftMenuViewController:drawerController rightMenuViewController:nil];
+    
     MMMainViewController *vc = [[MMMainViewController alloc]initWithContentViewController:nav leftMenuViewController:drawerController ];
     drawerController.delegate  = vc;
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
-    [[AFNetworkReachabilityManager sharedManager]startMonitoring];
+    
     return YES;
 }
 

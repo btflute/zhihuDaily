@@ -10,5 +10,6 @@
 
 @interface NSObject (Date)
 -(NSString *)getDate;
++(NSString *)getDate;
 -(NSString *)getSpecifyDate:(NSString *)specifyDate;
 @end

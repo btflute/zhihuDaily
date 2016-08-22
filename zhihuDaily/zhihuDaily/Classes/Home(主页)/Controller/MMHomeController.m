@@ -19,6 +19,7 @@
 #import "MMHomeStoryTopStoryItem.h"
 #import "UINavigationBar+Color.h"
 #import "ParallaxHeaderView.h"
+#import "MMSourceTool.h"
 @interface MMHomeController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate,MMDetailControllerDelegate>
 
 @property (nonatomic,weak)MMRefreshView *refreshView;
@@ -54,6 +55,8 @@ static NSString *HEADID = @"HEADID";
         view.frame = CGRectMake(0, 0, MMScreenW, 200);
         tableView.tableHeaderView = view;
         
+        
+        [self.view bringSubviewToFront:self.homeScrollView];
         MMRefreshView *refreshView = [MMRefreshView refreshViewWithScrollView:tableView];
         refreshView.center = CGPointMake(MMScreenW * 0.5 - 50, 42);
         [self.view addSubview:refreshView];
@@ -176,8 +179,8 @@ static NSString *HEADID = @"HEADID";
 
 
 - (void)loadTodayData{
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    [mgr GET:@"http://news-at.zhihu.com/api/4/news/latest" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
+    
+    [MMSourceTool getLatestHomeStoriesWithCompletion:^(MMHomeStoryItem* obj) {
         if (self.homeStories.count) {
             MMHomeStoryItem *item = self.homeStories[0];
             NSString *date = [self getDate];
@@ -185,24 +188,16 @@ static NSString *HEADID = @"HEADID";
                 [self.homeStories removeObjectAtIndex:0];
             }
         }
-        [MMHomeStoryItem mj_setupObjectClassInArray:^NSDictionary *{
-            return @{
-                     @"top_stories":[MMHomeStoryTopStoryItem class],
-                     @"stories":[MMHomeStoryStoryItem class]
-                     };
-        }];
-        MMHomeStoryItem *temp = [MMHomeStoryItem mj_objectWithKeyValues:responseObject];
-        
-        [self.homeStories insertObject:temp atIndex:0];
+        [self.homeStories insertObject:obj atIndex:0];
         [self setTopStoryData];
         [self.refreshView endRefresh];
         dispatch_async(dispatch_get_main_queue(), ^{
-
+            
             [self.homeTableView reloadData];
         });
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
     }];
+    
+    
 }
 
 

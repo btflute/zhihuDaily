@@ -11,6 +11,8 @@
 #import "SYLeftDrawerCell.h"
 #import <MJExtension/MJExtension.h>
 #import <AFNetworking/AFNetworking.h>
+#import "MMSourceTool.h"
+
 @interface SYLeftDrawerController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSMutableArray<SYTheme *> *themes;
 
@@ -87,19 +89,17 @@
 }
 
 - (void)setupDataSource {
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    [mgr GET:@"http://news-at.zhihu.com/api/4/themes" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary*  _Nullable responseObject) {
-        self.themes = [SYTheme mj_objectArrayWithKeyValuesArray:responseObject[@"others"]];
+    [MMSourceTool getThemelistWithCompletion:^(NSMutableArray <SYTheme*> * obj) {
+        self.themes = obj;
+
         SYTheme *home = [[SYTheme alloc] init];
         home.name = @"首页";
         [self.themes insertObject:home atIndex:0];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
     }];
+     
 }
 
 

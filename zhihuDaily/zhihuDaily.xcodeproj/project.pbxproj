@@ -95,6 +95,8 @@
 		3BEF8B281D6994A700490E29 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BEF8B221D6994A700490E29 /* Info.plist */; };
 		3BEF8B2B1D69964000490E29 /* MMCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B2A1D69964000490E29 /* MMCacheTool.m */; };
 		3BEF8B2E1D6AA00000490E29 /* MMSourceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B2D1D6AA00000490E29 /* MMSourceTool.m */; };
+		3BEF8B301D6AC41700490E29 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BEF8B2F1D6AC41700490E29 /* libsqlite3.tbd */; };
+		3BEF8B331D6AD10900490E29 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEF8B321D6AD10900490E29 /* Reachability.m */; };
 		3BF20CDF1D1C15F600C3208A /* UINavigationBar+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF20CDE1D1C15F600C3208A /* UINavigationBar+Color.m */; };
 /* End PBXBuildFile section */
 
@@ -265,6 +267,9 @@
 		3BEF8B2A1D69964000490E29 /* MMCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCacheTool.m; sourceTree = "<group>"; };
 		3BEF8B2C1D6AA00000490E29 /* MMSourceTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSourceTool.h; sourceTree = "<group>"; };
 		3BEF8B2D1D6AA00000490E29 /* MMSourceTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSourceTool.m; sourceTree = "<group>"; };
+		3BEF8B2F1D6AC41700490E29 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3BEF8B311D6AD10900490E29 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		3BEF8B321D6AD10900490E29 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		3BF20CDD1D1C15F600C3208A /* UINavigationBar+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Color.h"; sourceTree = "<group>"; };
 		3BF20CDE1D1C15F600C3208A /* UINavigationBar+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Color.m"; sourceTree = "<group>"; };
 		60CAE9B21DC030766D3FBD1D /* Pods-zhihuDaily.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhihuDaily.release.xcconfig"; path = "Pods/Target Support Files/Pods-zhihuDaily/Pods-zhihuDaily.release.xcconfig"; sourceTree = "<group>"; };
@@ -277,6 +282,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BEF8B301D6AC41700490E29 /* libsqlite3.tbd in Frameworks */,
 				2C1478924BB14E8BE13A2C12 /* libPods-zhihuDaily.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,6 +628,8 @@
 		3B2F453F1D0BF5650037F5D1 /* Tool(工具类) */ = {
 			isa = PBXGroup;
 			children = (
+				3BEF8B311D6AD10900490E29 /* Reachability.h */,
+				3BEF8B321D6AD10900490E29 /* Reachability.m */,
 				3BEF8B291D69964000490E29 /* MMCacheTool.h */,
 				3BEF8B2A1D69964000490E29 /* MMCacheTool.m */,
 				3BEF8B2C1D6AA00000490E29 /* MMSourceTool.h */,
@@ -767,6 +775,7 @@
 		6192396E58851F76A9246258 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BEF8B2F1D6AC41700490E29 /* libsqlite3.tbd */,
 				3B8BEED01D4DA72700A597A5 /* myUILabel */,
 				3B8BEECC1D4DA4E300A597A5 /* ParallaxTableViewHeader */,
 				89ABCFF02B2A37753B7B1DB4 /* libPods-zhihuDaily.a */,
@@ -923,6 +932,7 @@
 				3B8BEF431D50901000A597A5 /* MMStoryNavigationView.m in Sources */,
 				3BEF8B2B1D69964000490E29 /* MMCacheTool.m in Sources */,
 				3B2F45791D0D089B0037F5D1 /* MMThemeController.m in Sources */,
+				3BEF8B331D6AD10900490E29 /* Reachability.m in Sources */,
 				3B2F45431D0C060D0037F5D1 /* MMMainViewController.m in Sources */,
 				3B3BA93E1D5C6CE000C14D35 /* MBProgressHUD.m in Sources */,
 				3B2F455D1D0C2D210037F5D1 /* Foundation+Log.m in Sources */,

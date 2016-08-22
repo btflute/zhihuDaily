@@ -18,11 +18,11 @@ static FMDatabaseQueue *_zhihu_queue;
     dispatch_once(&onceToken, ^{
         NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
         NSString *dbname = [NSString stringWithFormat:@"%@.cache.sqlite",@"zhihu"];
-        NSString *fullPath = [path stringByAppendingString:dbname];
+        NSString *fullPath = [path stringByAppendingPathComponent:dbname];
         _zhihu_queue = [FMDatabaseQueue databaseQueueWithPath:fullPath];
         [_zhihu_queue inDatabase:^(FMDatabase *db) {
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS mm_homelist (id INTEGER PRIMARY KEY AUTOINCREMENT,date INTEGER UNIQUE,storylist BLOB);"];
-            [db executeUpdate:@"CREATE TABLE IF NOT EXISTS mm_homelatest (id INTEGER PRIMARY KEY AUTOINCREMENT,date INTEGER UNIQUE,storylatest BLOB);"];
+            [db executeUpdate:@"CREATE TABLE IF NOT EXISTS mm_homelatest (date INTEGER PRIMARY KEY,homelatest BLOB);"];
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS mm_datailstory (id INTEGER PRIMARY KEY AUTOINCREMENT,storyid INTEGER UNIQUE,story BLOB);"];
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS mm_themedatailstory (id INTEGER PRIMARY KEY AUTOINCREMENT,storyid INTEGER UNIQUE,themeid INTEGER,story BLOB);"];
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS mm_themelist (themeid INTEGER PRIMARY KEY,theme BLOB)"];
@@ -40,6 +40,21 @@ static FMDatabaseQueue *_zhihu_queue;
             [db executeUpdate:sql,@(theme.id),data];
         }];
     });
+}
++ (NSArray *)queryThemes{
+    __block NSMutableArray *array = [@[] mutableCopy];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[self queue] inDatabase:^(FMDatabase *db) {
+            NSString *sql = @"SELECT theme FROM mm_themelist;";
+            FMResultSet * result = [db executeQuery:sql];
+            while (result.next) {
+                NSData *data =[result dataForColumnIndex:0];
+                SYTheme *theme = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                [array addObject:theme];
+            }
+        }];
+    });
+    return array;
 }
 
 +(NSArray *)queryStoryListWithDate:(NSString *)dateString{
@@ -73,7 +88,7 @@ static FMDatabaseQueue *_zhihu_queue;
     __block NSData *data = nil;
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [[self queue] inDatabase:^(FMDatabase *db) {
-            FMResultSet *result = [db executeQuery:@"SELECT storylatest FROM mm_homelatest where date = ?;",dateString];
+            FMResultSet *result = [db executeQuery:@"SELECT homelatest FROM mm_homelatest where date = ?;",dateString];
             if (result.next) {
                 data = [result dataForColumnIndex:0];
                 
@@ -87,11 +102,11 @@ static FMDatabaseQueue *_zhihu_queue;
     return nil;
 }
 
-+ (void)cacheStoryLatestWithArray:(MMHomeStoryItem *)item {
++ (void)cacheStoryLatestWithItem:(MMHomeStoryItem *)item {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:item];
         [[self queue] inDatabase:^(FMDatabase *db) {
-            [db executeUpdate:@"REPLACE INTO mm_homelatest (date,homelatest) VALUES (?,?);",item.date,data ];
+            [db executeUpdate:@"REPLACE INTO mm_homelatest(date,homelatest) VALUES (?,?);",item.date,data ];
         }];
     });
 }

@@ -10,4 +10,5 @@
 typedef void (^complete)(id obj);
 @interface MMSourceTool : NSObject
 +(void)getLatestHomeStoriesWithCompletion:(complete)complete;
++(void)getThemelistWithCompletion:(complete)complete;
 @end
