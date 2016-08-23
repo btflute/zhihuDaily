@@ -7,24 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
-@class SYTheme,MMHomeStoryStoryItem,MMHomeStoryItem;
+@class SYTheme,MMHomeStoryStoryItem,MMHomeStoryItem,MMThemeItem,MMDetailStory;
 @interface MMCacheTool : NSObject
 + (void)cacheThemeWithTheme:(SYTheme *)theme;
+
 + (NSArray *)queryThemes;
 
-+(NSArray *)queryStoryListWithDate:(NSString *)dateString;
++(MMHomeStoryItem *)queryStoryListWithDate:(NSString *)dateString;
 
-+ (void)cacheStoryListWithArray:(NSArray *)array date:(NSString *)dateString;
++ (void)cacheStoryListWithItem:(MMHomeStoryItem *)item;
 
-+(MMHomeStoryStoryItem *)queryStoryWithID:(long long)ID;
++(MMDetailStory *)queryStoryWithID:(long long)ID;
 
-+(void)cacheStoryWithObject:(MMHomeStoryStoryItem *)story;
++(void)cacheStoryWithObject:(MMDetailStory *)story;
 
-+(void)cacheThemeStoryListWithID:(int)themeid storyArray:(NSArray *)array;
++(void)cacheThemeStoryListWithID:(int)themeid story:(MMHomeStoryStoryItem *)story;
 
-+(NSArray *)queryThemeStoryListWithMinID:(long long)storyid themeid:(int)themeid;
++(NSMutableArray *)queryThemeStoryListWithMinID:(long long)storyid themeid:(int)themeid;
 
-+(MMHomeStoryItem *)queryStoryLatestWithDate:(NSString *)dateString;
++(MMHomeStoryItem *)queryStoryLatest;
 
 + (void)cacheStoryLatestWithItem:(MMHomeStoryItem *)item;
+
++ (void)cacheThemeLatestWithItem:(MMThemeItem *)item themeid:(int)ID;
+
++ (MMThemeItem *)queryThemeLatestWithThemeid:(int)ID;
 @end

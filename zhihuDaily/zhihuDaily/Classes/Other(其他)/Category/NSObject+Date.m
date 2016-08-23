@@ -19,6 +19,13 @@
     return [[[self alloc]init] getDate];
 }
 
++(NSString *)getYesterdayWithDate:(NSString *)date{
+     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"yyyyMMdd";
+    NSDate *temp = [dateFormatter dateFromString:date];
+    return [dateFormatter stringFromDate:[NSDate dateWithTimeInterval:- 24 * 60 * 60 sinceDate:temp]];
+}
+
 -(NSString *)getSpecifyDate:(NSString *)specifyDate{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh-CN"];

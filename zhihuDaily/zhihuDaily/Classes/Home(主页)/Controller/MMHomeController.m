@@ -21,7 +21,7 @@
 #import "ParallaxHeaderView.h"
 #import "MMSourceTool.h"
 @interface MMHomeController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate,MMDetailControllerDelegate>
-
+@property (nonatomic,assign ,getter = isLoadingBeforeData)BOOL LoadingBeforeData;
 @property (nonatomic,weak)MMRefreshView *refreshView;
 @property (nonatomic,weak)SDCycleScrollView *homeScrollView;
 @property (nonatomic,weak)UIView *headerView;
@@ -182,12 +182,10 @@ static NSString *HEADID = @"HEADID";
     
     [MMSourceTool getLatestHomeStoriesWithCompletion:^(MMHomeStoryItem* obj) {
         if (self.homeStories.count) {
-            MMHomeStoryItem *item = self.homeStories[0];
-            NSString *date = [self getDate];
-            if ([date isEqualToString:item.date]) {
-                [self.homeStories removeObjectAtIndex:0];
-            }
+            [self.homeStories removeObjectAtIndex:0];
+
         }
+        if(!obj) return;
         [self.homeStories insertObject:obj atIndex:0];
         [self setTopStoryData];
         [self.refreshView endRefresh];
@@ -202,27 +200,24 @@ static NSString *HEADID = @"HEADID";
 
 
 - (void)loadBeforeData{
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    if (self.isLoadingBeforeData) return;
+    self.LoadingBeforeData = YES;
     MMHomeStoryItem * item = [self.homeStories lastObject];
     if (!item) {
         return;
     }
-    [mgr GET:[NSString stringWithFormat:@"http://news.at.zhihu.com/api/4/news/before/%@",item.date] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary*  _Nullable responseObject) {
-        [MMHomeStoryItem mj_setupObjectClassInArray:^NSDictionary *{
-            return @{
-                     @"top_stories":[MMHomeStoryTopStoryItem class],
-                     @"stories":[MMHomeStoryStoryItem class]
-                     };
-        }];
-        MMHomeStoryItem *temp = [MMHomeStoryItem mj_objectWithKeyValues:responseObject];
-        [self.homeStories addObject:temp];
+    [MMSourceTool getBeforeHomeStoriesWithDate:item.date Completion:^(MMHomeStoryItem * obj) {
+        self.LoadingBeforeData = NO;
+        if (!obj) {
+            return;
+        }
+        [self.homeStories addObject:obj];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.homeTableView reloadData];
         });
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
     }];
+    
+    
 }
 
 

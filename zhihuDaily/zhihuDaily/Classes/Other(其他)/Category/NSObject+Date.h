@@ -11,5 +11,6 @@
 @interface NSObject (Date)
 -(NSString *)getDate;
 +(NSString *)getDate;
++(NSString *)getYesterdayWithDate:(NSString *)date;
 -(NSString *)getSpecifyDate:(NSString *)specifyDate;
 @end

@@ -18,6 +18,7 @@
 #import <MJExtension/MJExtension.h>
 #import "MMEditor.h"
 #import "MMRefreshView.h"
+#import "MMSourceTool.h"
 @interface MMThemeController ()
 @property (nonatomic,strong)MMThemeItem * themeItem;
 @property (nonatomic,weak)UIButton *collectButton;
@@ -87,50 +88,45 @@
 
 #pragma mark - 加载网络数据
 -(void)reload{
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     __weakSelf;
-    [mgr GET:[NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/theme/%d",self.theme.id] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
-        [MMThemeItem mj_setupObjectClassInArray:^NSDictionary *{
-            return @{
-                     @"editors":[MMEditor class],
-                     @"stories":[MMHomeStoryStoryItem class]
-                     };
-        }];
-        weakSelf.themeItem = [MMThemeItem mj_objectWithKeyValues:responseObject];
+    [MMSourceTool getLatestThemeStoriesWithThemeid:self.theme.id Completion:^(MMThemeItem * obj) {
+        if(!obj) return;
+        weakSelf.themeItem = obj;
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.title = weakSelf.themeItem.name;
             [weakSelf.mm_backgroundImageView sd_setImageWithURL:[NSURL URLWithString:weakSelf.themeItem.image]];
-            [self.mm_header bringSubviewToFront:self.collectButton];
+            [weakSelf.mm_header bringSubviewToFront:self.collectButton];
             NSMutableArray *avatarArray = [@[] mutableCopy];
             for (MMEditor *editor in self.themeItem.editors) {
                 [avatarArray addObject:editor.avatar];
             }
-            self.tableHeader.avatars = avatarArray;
-            [self.tableView reloadData];
+            weakSelf.tableHeader.avatars = avatarArray;
+            [weakSelf.tableView reloadData];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.mm_refreshView endRefresh];
             });
         }) ;
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        MMLog(@"%@",error);
     }];
+    
 }
 
 -(void)loadMoreData{
-    long long storyid = self.stories.lastObject.id;
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     __weakSelf;
-    [mgr GET:[NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/theme/%d/before/%lld",self.theme.id,storyid] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary*  _Nullable responseObject) {
-        NSArray *temp =  responseObject[@"stories"];
-        NSArray *target = [MMHomeStoryStoryItem mj_objectArrayWithKeyValuesArray:temp];
-        [weakSelf.themeItem.stories addObjectsFromArray:target];
-        [weakSelf.tableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        MMLog(@"%@",error);
+    [MMSourceTool getMoreThemeStoriesWithThemeid:self.theme.id storyid:self.stories.lastObject.id completion:^(NSMutableArray* obj) {
+        if (obj.count == 0) {
+            return;
+        }
+        [weakSelf.themeItem.stories addObjectsFromArray:obj];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+        
     }];
+
 }
 #pragma mark - tableViewDelegate
 -(void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    MMLog(@"row:%d",indexPath.row);
     if (indexPath.row == self.stories.count - 18) {
         [self loadMoreData];
     }

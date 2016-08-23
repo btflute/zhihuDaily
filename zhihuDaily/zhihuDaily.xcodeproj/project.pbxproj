@@ -13,7 +13,6 @@
 		3B2F45041D0BF1530037F5D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B2F45031D0BF1530037F5D1 /* Assets.xcassets */; };
 		3B2F45431D0C060D0037F5D1 /* MMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F45421D0C060D0037F5D1 /* MMMainViewController.m */; };
 		3B2F454C1D0C10A20037F5D1 /* MMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F454B1D0C10A20037F5D1 /* MMNavigationController.m */; };
-		3B2F454F1D0C24160037F5D1 /* MMHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F454E1D0C24160037F5D1 /* MMHomeController.m */; };
 		3B2F455D1D0C2D210037F5D1 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F45501D0C2D210037F5D1 /* Foundation+Log.m */; };
 		3B2F455E1D0C2D210037F5D1 /* NSData+MMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F45521D0C2D210037F5D1 /* NSData+MMExtension.m */; };
 		3B2F455F1D0C2D210037F5D1 /* UIBarButtonItem+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F45541D0C2D210037F5D1 /* UIBarButtonItem+Extend.m */; };
@@ -71,6 +70,7 @@
 		3BA7359F1D140DD200DB6A18 /* NSObject+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7359E1D140DD200DB6A18 /* NSObject+Date.m */; };
 		3BA735A21D14105200DB6A18 /* MMHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA735A11D14105200DB6A18 /* MMHomeHeaderView.m */; };
 		3BA735A51D17B51600DB6A18 /* MMHomeStoryTopStoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA735A41D17B51600DB6A18 /* MMHomeStoryTopStoryItem.m */; };
+		3BD075B01D6B744C00BFE348 /* MMHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD075AF1D6B744C00BFE348 /* MMHomeController.m */; };
 		3BD238AB1D118521002CC6DC /* MMAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD238AA1D118521002CC6DC /* MMAppSettings.m */; };
 		3BD238AE1D11BAC9002CC6DC /* MMHomeStoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD238AD1D11BAC9002CC6DC /* MMHomeStoryItem.m */; };
 		3BD238B11D11BBD1002CC6DC /* MMHomeStoryStoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD238B01D11BBD1002CC6DC /* MMHomeStoryStoryItem.m */; };
@@ -113,7 +113,6 @@
 		3B2F454A1D0C10A20037F5D1 /* MMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMNavigationController.h; sourceTree = "<group>"; };
 		3B2F454B1D0C10A20037F5D1 /* MMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMNavigationController.m; sourceTree = "<group>"; };
 		3B2F454D1D0C24160037F5D1 /* MMHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomeController.h; sourceTree = "<group>"; };
-		3B2F454E1D0C24160037F5D1 /* MMHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomeController.m; sourceTree = "<group>"; };
 		3B2F45501D0C2D210037F5D1 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		3B2F45511D0C2D210037F5D1 /* NSData+MMExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MMExtension.h"; sourceTree = "<group>"; };
 		3B2F45521D0C2D210037F5D1 /* NSData+MMExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MMExtension.m"; sourceTree = "<group>"; };
@@ -223,6 +222,7 @@
 		3BA735A11D14105200DB6A18 /* MMHomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomeHeaderView.m; sourceTree = "<group>"; };
 		3BA735A31D17B51600DB6A18 /* MMHomeStoryTopStoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomeStoryTopStoryItem.h; sourceTree = "<group>"; };
 		3BA735A41D17B51600DB6A18 /* MMHomeStoryTopStoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomeStoryTopStoryItem.m; sourceTree = "<group>"; };
+		3BD075AF1D6B744C00BFE348 /* MMHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMHomeController.m; sourceTree = "<group>"; };
 		3BD238A91D118521002CC6DC /* MMAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAppSettings.h; sourceTree = "<group>"; };
 		3BD238AA1D118521002CC6DC /* MMAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAppSettings.m; sourceTree = "<group>"; };
 		3BD238AC1D11BAC9002CC6DC /* MMHomeStoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMHomeStoryItem.h; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				3B2F454D1D0C24160037F5D1 /* MMHomeController.h */,
-				3B2F454E1D0C24160037F5D1 /* MMHomeController.m */,
+				3BD075AF1D6B744C00BFE348 /* MMHomeController.m */,
 				3B8BEEDA1D4F498800A597A5 /* MMDetailController.h */,
 				3B8BEEDB1D4F498800A597A5 /* MMDetailController.m */,
 				3B3BA9471D60873F00C14D35 /* MMWebViewController.h */,
@@ -946,6 +946,7 @@
 				3BA7359F1D140DD200DB6A18 /* NSObject+Date.m in Sources */,
 				3B8BEF2E1D507B2400A597A5 /* MASViewConstraint.m in Sources */,
 				3B8BEF2B1D507B2400A597A5 /* MASConstraintMaker.m in Sources */,
+				3BD075B01D6B744C00BFE348 /* MMHomeController.m in Sources */,
 				3B3BA93C1D5C6CE000C14D35 /* MBProgressHUD+YS.m in Sources */,
 				3BEF8B021D65538600490E29 /* MMComment.m in Sources */,
 				3B8BEED61D4DA7B800A597A5 /* UIImage+ImageEffects.m in Sources */,
@@ -954,7 +955,6 @@
 				3B2F456D1D0CF04F0037F5D1 /* SYLeftDrawerCell.m in Sources */,
 				3BEF8AF71D616FC400490E29 /* MMCommentParam.m in Sources */,
 				3B2F454C1D0C10A20037F5D1 /* MMNavigationController.m in Sources */,
-				3B2F454F1D0C24160037F5D1 /* MMHomeController.m in Sources */,
 				3B8BEF401D508DB000A597A5 /* MMExtraStory.m in Sources */,
 				3BD238AB1D118521002CC6DC /* MMAppSettings.m in Sources */,
 				3BEF8B0D1D65D7B500490E29 /* MMCommentNav.m in Sources */,

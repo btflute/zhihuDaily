@@ -25,10 +25,12 @@ static NSString *theme_reuseid = @"theme_reuseid";
 
 #pragma mark - UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    MMLog(@"%d",self.stories.count);
     return self.stories.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MMLog(@"%d",indexPath.row);
     MMHomeCell*cell = [tableView dequeueReusableCellWithIdentifier:theme_reuseid];
     cell.item = self.stories[indexPath.row];
     return cell;

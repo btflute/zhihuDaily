@@ -22,6 +22,7 @@
 #import "MMWebViewController.h"
 #import "MMCommentController.h"
 #import "MMCommentParam.h"
+#import "MMSourceTool.h"
 @interface MMDetailController ()<UIWebViewDelegate,UIScrollViewDelegate,MMStoryNavigationViewDelegate>
 @property (nonatomic,weak) MMTopView *topView;
 @property (nonatomic,weak) UIWebView *webView;
@@ -216,11 +217,11 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         MMLog(@"%@",error);
     }];
-    [mgr GET:[NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/news/%lld",self.story.id] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary*  _Nullable responseObject) {
-        [MMDetailStory mj_setupObjectClassInArray:^NSDictionary *{
-            return @{@"recommenders":[MMRecommender class]};
-        }];
-        MMDetailStory *ds = [MMDetailStory mj_objectWithKeyValues:responseObject];
+    [MMSourceTool getStoryWithID:self.story.id completion:^(MMDetailStory * obj) {
+        if (!obj) {
+            return;
+        }
+        MMDetailStory *ds =  obj;
         if (ds.body.length == 0) {
             [weakSelf.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://daily.zhihu.com/story/%lld",self.story.id]]]];
             return ;
@@ -236,16 +237,14 @@
             weakSelf.topView.hidden = NO;
             weakSelf.topView.story = ds;
         }
-
+        
         else{
             self.header.dk_textColorPicker = DKColorPickerWithKey(TEXT);
             weakSelf.topView.hidden = YES;
         }
         [weakSelf.webView loadHTMLString:ds.htmlStr baseURL:nil];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        MMLog(@"%@",error);
     }];
-    
+        
 }
 
 #pragma mark - scrollViewDelegate

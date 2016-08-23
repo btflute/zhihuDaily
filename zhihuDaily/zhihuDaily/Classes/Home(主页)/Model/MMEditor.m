@@ -7,7 +7,7 @@
 //
 
 #import "MMEditor.h"
-
+#import "MJExtension.h"
 @implementation MMEditor
-
+MJCodingImplementation
 @end

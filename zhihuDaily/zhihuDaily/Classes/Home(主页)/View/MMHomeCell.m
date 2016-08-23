@@ -30,7 +30,9 @@
     if (item.images.count >=1) {
         self.multipicImageView.hidden = !item.multipic;
         [self.storyImageView sd_setImageWithURL:[NSURL URLWithString:item.images[0]]];
+        self.storyImageView.hidden = NO;
     }else{
+        self.storyImageView.hidden = YES;
         self.multipicImageView.hidden = YES;
     }
     
